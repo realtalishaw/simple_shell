@@ -20,6 +20,7 @@
 int shell_builtin(char **args, char *line);
 void shell_run(char **args, char *line);
 int _strcmp(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
 
 
 /* parser.c */

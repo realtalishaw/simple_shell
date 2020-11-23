@@ -35,12 +35,12 @@ for (i = 0; i < 20; i++)
 {
   if (_strcmp(args[0], usrcmd[i]) == 0)
   {
-   newParm = strcat(usr, parmList);
-    path = strcat(newParm, args[0]);
+   newParm = _strcat(usr, parmList);
+    path = _strcat(newParm, args[0]);
     break;
   }
   else
-      path = strcat(parmList, args[0]);
+      path = _strcat(parmList, args[0]);
       break;
 }
 

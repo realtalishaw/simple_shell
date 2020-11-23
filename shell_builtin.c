@@ -14,7 +14,7 @@ int shell_builtin(char **args, char *line)
   for (i = 0; i < 6; i++)
   {
 
-    if (strcmp(args[0], builtin[i]) == 0)
+    if (_strcmp(args[0], builtin[i]) == 0)
         {
           switchOwnArg += i;
           /*printf("Builtin: %d\n", switchOwnArg);*/
@@ -33,13 +33,13 @@ int shell_builtin(char **args, char *line)
         chdir(args[1]); 
         return 1; 
     case 3: 
-        printf("Will help you eventually\n");
+       /* printf("Will help you eventually\n");*/
         return 1; 
     case 4: 
-        printf("You got this!\n"); 
+       /* printf("You got this!\n"); */
         return 1; 
     case 5:
-      printf("Alias will happen here... maybe\n");
+     /* printf("Alias will happen here... maybe\n");*/
       return 1;
     default: 
       shell_run (args, line); 

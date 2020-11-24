@@ -28,7 +28,6 @@ if (signal(SIGINT, sig_handler) == SIG_ERR)
     if (_strcmp(args[0], builtin[i]) == 0)
         {
           switchOwnArg += i;
-          /*printf("Builtin: %d\n", switchOwnArg);*/
           break;
         }
   }

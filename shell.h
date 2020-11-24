@@ -22,6 +22,7 @@ void shell_run(char **args, char *line);
 int _strcmp(char *s1, char *s2);
 typedef void sigfunc(int);
 void sig_handler(int signo);
+int _putchar(char c);
 
 
 /* parser.c */

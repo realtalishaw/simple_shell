@@ -1,5 +1,5 @@
 #include "shell.h"
-void shell_run(char **args, char *line)
+void shell_run(char **args, __attribute__((unused))char *line)
 {
 pid_t pid, pid2;
 int status;
@@ -34,20 +34,20 @@ usrcmd[18] = NULL;
 
 for (i = 0; i < 19; i++)
 {
-  /*if (args[0][i] == '/')
+  if (args[0][i] == '/')
   {
     path = *args;
     break;
-  }*/
+  }
   if (_strcmp(args[0], usrcmd[i]) == 0)
   {
-   newParm = _strcat(usr, parmList);
-    path = _strcat(newParm, args[0]);
+   newParm = strcat(usr, parmList);
+    path = strcat(newParm, args[0]);
     break;
   }
   else if (i == 18)
   {
-    path = _strcat(parmList, args[0]);
+    path = strcat(parmList, args[0]);
   }
 }
 
@@ -66,11 +66,8 @@ if (pid == 0)
 } else {
   do {
     pid2 = waitpid(pid, &status, WUNTRACED);
-    free(line);
-    line = NULL;
-    free(args);
-    args = NULL;
-    kill(pid2, SIGKILL);
+   
+   kill(pid2, SIGKILL);
   } while (!WIFEXITED(status) && ! WIFSIGNALED(status));
 }
 }

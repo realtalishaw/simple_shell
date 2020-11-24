@@ -25,7 +25,7 @@ if (signal(SIGINT, sig_handler) == SIG_ERR)
   for (i = 0; i < 6; i++)
   {
 
-    if (_strcmp(args[0], builtin[i]) == 0)
+    if (strcmp(args[0], builtin[i]) == 0)
         {
           switchOwnArg += i;
           /*printf("Builtin: %d\n", switchOwnArg);*/

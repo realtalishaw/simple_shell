@@ -2,7 +2,6 @@
 #define _SHELL_H_
 
 #include <string.h>
-
 #include <signal.h>
 #include <sys/wait.h>
 #include <sys/types.h>
@@ -16,11 +15,13 @@
 #include <limits.h>
 #include <errno.h>
 #include <stddef.h>
+#define BUFSIZE 1024
 
 int shell_builtin(char **args, char *line);
 void shell_run(char **args, char *line);
 int _strcmp(char *s1, char *s2);
-char *_strcat(char *dest, char *src);
+typedef void sigfunc(int);
+void sig_handler(int signo);
 
 
 /* parser.c */
@@ -37,24 +38,17 @@ char *_strdup(char *source, unsigned int extra);
 char **tokenizer(char *buffer);
 
 /**
- * struct global - global variables (not bool flags)
- * @command: name of command that's been parsed
- * @command_length: length of command string
- * @line_no: line no.
- * @exit_status: number to exit with (error number)
- * @input: input number (file open)
- * @az: name of shell (argv[0])
- */
-struct global
+ * struct built_s - linked list of builtins
+ * @name: name of builtin
+ * @p: pointer to function
+ *
+ * Description: struct for builtin functions.
+**/
+typedef struct built_s
 {
-	char *command;
-	int command_length;
-	int line_no;
-	int exit_status;
-	int input;
-	char *az;
-
-} global;
+	char *name;
+	int (*p)(void);
+} built_s;
 
 extern char **environ;
 

@@ -14,7 +14,7 @@ char **tokenizer(char *str)
 	tokens = malloc(sizeof(char *) * 1024);
 	if (tokens == NULL)
 		return (NULL);
-	token = strtok(buffer, "\n\t\r");
+	token = strtok(str, "\n\t\r");
 	while (token != NULL)
 	{
 		tokens[i] = token;

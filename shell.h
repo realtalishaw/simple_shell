@@ -50,6 +50,7 @@ typedef struct built_s
 {
 	char *name;
 	int (*p)(void);
+
 } built_s;
 
 extern char **environ;

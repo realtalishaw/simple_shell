@@ -46,13 +46,13 @@ if (signal(SIGINT, sig_handler) == SIG_ERR)
         chdir(args[1]); 
         return 1; 
     case 3: 
-        printf("Will help you eventually\n");
+       
         return 1; 
     case 4: 
-        printf("You got this!\n"); 
+      
         return 1; 
     case 5:
-      printf("Alias will happen here... maybe\n");
+      
       return 1;
     default: 
       shell_run (args, line); 

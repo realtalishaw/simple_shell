@@ -1,34 +1,52 @@
 #include "shell.h"
 
 int main(void) {
-  char *line;
+  char *line = NULL;
   char **args;
-  /*int i;*/
   size_t size = 0;
-  
- line = NULL;
+  int c;
+  /*int status;*/
 
   do {
-    putchar('$');
-    putchar(' ');
-   
-    getline(&line, &size, stdin);
+    if (isatty(STDIN_FILENO) == 1)
+    {
+_putchar('$');
+
+    }
+    c = getline(&line, &size, stdin);
+    if (c == -1)
+    {
+exit (0);
+    }
     if (line[0] == '\n')
     {
       continue;
     }
-    args = tokenizer(line);    
+    /*printf("got line!\n");*/
+    args = tokenizer(line);
+    /*printf("got args!\n");*/
+     shell_builtin(args, line);
 
-    shell_builtin(args, line);
-      if (line != NULL)
-      {
-        free(line);
-        line = NULL;
-      }
-      /*free(args);*/
-      args = NULL;
+    free(line);
+    size = 0;
+    free(args);
   } while (1);
 
 
   return (0);
 }
+#include <unistd.h>
+
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+

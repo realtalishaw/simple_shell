@@ -10,7 +10,7 @@ int main(void) {
   do {
     if (isatty(STDIN_FILENO) == 1)
     {
-putchar('$');
+_putchar('$');
 
     }
     c = getline(&line, &size, stdin);

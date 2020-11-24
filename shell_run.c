@@ -28,24 +28,31 @@ usrcmd[13] = "diff";
 usrcmd[14] = "free";
 usrcmd[15] = "groups";
 usrcmd[16] = "passwd";
-usrcmd[17] = "ssh";
-usrcmd[18] = "env";
+usrcmd[17] = "env";
+usrcmd[18] = NULL;
 
-for (i = 0; i < 20; i++)
+
+for (i = 0; i < 19; i++)
 {
+  /*if (args[0][i] == '/')
+  {
+    path = *args;
+    break;
+  }*/
   if (_strcmp(args[0], usrcmd[i]) == 0)
   {
-   newParm = _strcat(usr, parmList);
-    path = _strcat(newParm, args[0]);
+   newParm = strcat(usr, parmList);
+    path = strcat(newParm, args[0]);
     break;
   }
-  else
-      path = _strcat(parmList, args[0]);
-      break;
+  else if (i == 18)
+  {
+    path = strcat(parmList, args[0]);
+  }
 }
 
 
-
+ 
 pid = fork();
 if (pid == 0)
 {
@@ -60,7 +67,9 @@ if (pid == 0)
   do {
     pid2 = waitpid(pid, &status, WUNTRACED);
     free(line);
+    line = NULL;
     free(args);
+    args = NULL;
     kill(pid2, SIGKILL);
   } while (!WIFEXITED(status) && ! WIFSIGNALED(status));
 }

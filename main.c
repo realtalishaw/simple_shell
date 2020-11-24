@@ -16,7 +16,10 @@ _putchar('$');
 }
 c = getline(&line, &size, stdin);
 if (c == -1)
+{
+	free(line);
 exit(0);
+}
 if (line[0] == '\n')
 {
 continue;

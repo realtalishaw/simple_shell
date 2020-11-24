@@ -22,9 +22,9 @@ exit (0);
     {
       continue;
     }
-    /*printf("got line!\n");*/
+  
     args = tokenizer(line);
-    /*printf("got args!\n");*/
+  
      shell_builtin(args, line);
 
     free(line);

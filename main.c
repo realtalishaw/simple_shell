@@ -16,13 +16,12 @@ _putchar('$');
 }
 c = getline(&line, &size, stdin);
 if (c == -1)
-{
 exit(0);
-}
 if (line[0] == '\n')
 {
 continue;
 }
+double_space_remover(line);
 args = tokenizer(line);
 shell_builtin(args, line);
 free(line);

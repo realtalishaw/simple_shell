@@ -130,6 +130,5 @@ char *_strdup(char *source, unsigned int extra)
 		for (extra += i; i < extra; i++)
 			copy[i] = '\0';
 	}
-
 	return (copy);
 }

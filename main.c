@@ -6,7 +6,7 @@
 int main(void)
 {
 char *line = NULL;
-char **args = NULL;
+char **args;
 size_t size = 0;
 int c;
 do {
@@ -17,7 +17,7 @@ _putchar('$');
 c = getline(&line, &size, stdin);
 if (c == -1)
 {
-	free(line);
+  free(line);
 exit(0);
 }
 if (line[0] == '\n')
@@ -25,11 +25,11 @@ if (line[0] == '\n')
 continue;
 }
 double_space_remover(line);
-tokenizer(line);
+args = tokenizer(line);
 shell_builtin(args, line);
+free(args);
 free(line);
 size = 0;
-free(args);
 } while (1);
 return (0);
 }

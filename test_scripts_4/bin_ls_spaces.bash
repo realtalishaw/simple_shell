@@ -2,7 +2,7 @@
 
 ################################################################################
 # Description for the intranet check (one line, support Markdown syntax)
-# Execute `ls`
+# Execute `/bin/ls` 4 times (surrounded by spaces)
 
 ################################################################################
 # The variable 'compare_with_sh' IS OPTIONNAL
@@ -21,7 +21,10 @@
 # as follows: "echo $shell_input | ./hsh"
 #
 # It can be empty and multiline
-shell_input="ls"
+shell_input="/bin/ls
+     /bin/ls
+/bin/ls
+   /bin/ls     "
 
 ################################################################################
 # The variable 'shell_params' IS OPTIONNAL

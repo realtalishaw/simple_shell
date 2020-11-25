@@ -17,7 +17,7 @@ _putchar('$');
 c = getline(&line, &size, stdin);
 if (c == -1)
 {
-  free(line);
+free(line);
 exit(0);
 }
 if (line[0] == '\n')

@@ -35,6 +35,7 @@ int _strlen(char *str);
 int *_astrlen(char **str);
 char *_strdup(char *source, unsigned int extra);
 char **tokenizer(char *buffer);
+int _strncmp(char *s1, char *s2, int n);
 
 extern char **environ;
 #endif

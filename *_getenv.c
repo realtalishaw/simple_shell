@@ -18,7 +18,7 @@ i = _strlen(name);
 
 for (env = environ; *env; env++)
 {
-	if (strncmp(*env, name, i) == 0)
+	if (_strncmp(*env, name, i) == 0)
 	{
 		return (*env);
 	}

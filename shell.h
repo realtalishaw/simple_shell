@@ -24,7 +24,7 @@ typedef void sigfunc(int);
 void sig_handler(int signo);
 int _putchar(char c);
 char *_strcat(char *dest, char *src);
-
+char *_getenv(char *name);
 
 /* parser.c */
 

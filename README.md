@@ -53,6 +53,12 @@ ls - lists contents of directory
 ```
 ## Built-ins
 
+```
+exit
+help
+```
+
+
 ## Files Used In project
 
 ```

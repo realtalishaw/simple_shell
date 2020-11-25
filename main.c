@@ -6,7 +6,7 @@
 int main(void)
 {
 char *line = NULL;
-char **args;
+char **args = NULL;
 size_t size = 0;
 int c;
 do {
@@ -25,7 +25,7 @@ if (line[0] == '\n')
 continue;
 }
 double_space_remover(line);
-args = tokenizer(line);
+tokenizer(line);
 shell_builtin(args, line);
 free(line);
 size = 0;

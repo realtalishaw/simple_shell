@@ -15,8 +15,6 @@ if (isatty(STDIN_FILENO) == 1)
 _putchar('$');
 _putchar(' ');
 }
-else
-{
 c = getline(&line, &size, stdin);
 if (c == -1)
 {
@@ -34,10 +32,11 @@ if (*args[0] == ' ')
   free(args);
   break;
 }
+
 shell_builtin(args, line);
 free(args);
 free(line);
-size = 0;}
+size = 0;
 } while (1);
 return (0);
 }

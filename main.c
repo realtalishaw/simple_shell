@@ -24,8 +24,13 @@ if (line[0] == '\n')
 {
 continue;
 }
-double_space_remover(line);
 args = tokenizer(line);
+if (*args[0] == ' ')
+{
+  free(line);
+  free(args);
+  break;
+}
 shell_builtin(args, line);
 free(args);
 free(line);

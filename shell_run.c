@@ -17,7 +17,7 @@ char *usrcmd[19] = {"clear", "touch", "find", "du", "head", "tail", "diff",
 
 for (i = 0; i < 19; i++)
 {
-if (args[0][i] == '/')
+if (args[0][i] == '/' || args[0][i] == '.')
 {
 	path = *args;
 	break;

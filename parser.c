@@ -10,15 +10,17 @@ char **tokenizer(char *str)
 	char **tokens;
 	char *token;
 	unsigned int i = 0;
+  char *delim[ ] = {"\n\t\r"};
 
+  double_space_remover(str);
 	tokens = malloc(sizeof(char *) * 1024);
 	if (tokens == NULL)
 		return (NULL);
-	token = strtok(str, "\n\t\r");
+	token = strtok(str, *delim);
 	while (token != NULL)
 	{
 		tokens[i] = token;
-		token = strtok(NULL, "\n\t\r");
+		token = strtok(NULL, *delim);
 		i++;
 	}
 	tokens[i] = NULL;

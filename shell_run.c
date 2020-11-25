@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * shell_run - does things
+ * shell_run - does things like run
  * @args: args
  * @line: line
  * Return: 0

@@ -46,7 +46,6 @@ unsigned int _wordCount(char *str)
  */
 int _strcmp(char *s1, char *s2)
 {
-/* s1 == comp, s2 == to match to */
 	int index = 0;
 
 	if (s1 == NULL || s2 == NULL)
@@ -130,6 +129,5 @@ char *_strdup(char *source, unsigned int extra)
 		for (extra += i; i < extra; i++)
 			copy[i] = '\0';
 	}
-
 	return (copy);
 }

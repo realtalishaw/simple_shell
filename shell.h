@@ -24,11 +24,11 @@ typedef void sigfunc(int);
 void sig_handler(int signo);
 int _putchar(char c);
 char *_strcat(char *dest, char *src);
-char *_getenv(char *name);
 
 /* parser.c */
 
 /*char **parser(char *string, char *delim);*/
+
 char **parser(char *line);
 void fork_exec(char *path, char **token, char **env);
 char *com_remover(char *path);
@@ -38,21 +38,7 @@ int _strlen(char *str);
 int *_astrlen(char **str);
 char *_strdup(char *source, unsigned int extra);
 char **tokenizer(char *buffer);
-
-/**
- * struct built_s - linked list of builtins
- * @name: name of builtin
- * @p: pointer to function
- *
- * Description: struct for builtin functions.
-**/
-typedef struct built_s
-{
-	char *name;
-	int (*p)(void);
-
-} built_s;
+int _strncmp(char *s1, char *s2, int n);
 
 extern char **environ;
-
 #endif

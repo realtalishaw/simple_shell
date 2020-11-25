@@ -8,35 +8,19 @@
 void shell_run(char **args, __attribute__((unused))char *line)
 {
 pid_t pid, pid2;
-int status, i;
-char parmList[1024] = "/bin/", *newParm, usr[1024] = "/usr";
+int status;
 char *path;
-char *usrcmd[19] = {"clear", "touch", "find", "du", "head", "tail", "diff",
-		    "wget", "top", "man", "zip", "unzip", "curl", "diff",
-		    "free", "groups", "passwd", "env", NULL};
+char *fullpath;
+fullpath = NULL;
+path = _getenv("PATH");
 
-for (i = 0; i < 19; i++)
-{
-if (args[0][i] == '/')
-{
-	path = *args;
-	break;
-}
-if (_strcmp(args[0], usrcmd[i]) == 0)
-{
-	newParm = _strcat(usr, parmList), path = _strcat(newParm, args[0]);
-	break;
-}
-else if (i == 18)
-{
-path = _strcat(parmList, args[0]);
-}
-}
+fullpath = _searchpath(args[0], fullpath, path);
 pid = fork();
 if (pid == 0)
 {
-if (execve(path, args, environ) == -1)
+if (execve(fullpath, args, environ) == -1)
 perror("shell");
+free(fullpath);
 exit(0);
 }
 else if (pid < 0)
@@ -45,6 +29,7 @@ else
 {
 do {
 	pid2 = waitpid(pid, &status, WUNTRACED), kill(pid2, SIGKILL);
+	free(fullpath);
 } while (!WIFEXITED(status) && !WIFSIGNALED(status));
 }
 }

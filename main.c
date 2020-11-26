@@ -28,9 +28,9 @@ continue;
 args = tokenizer(line);
 if (*args[0] == ' ')
 {
-  free(line);
-  free(args);
-  break;
+free(line);
+free(args);
+break;
 }
 
 shell_builtin(args, line);

@@ -10,9 +10,8 @@ char **tokenizer(char *str)
 	char **tokens;
 	char *token;
 	unsigned int i = 0;
-  char *delim[ ] = {"\n \t \r \a"};
-
-  double_space_remover(str);
+char *delim[] = {"\n \t \r \a"};
+double_space_remover(str);
 	tokens = malloc(sizeof(char *) * 1024);
 	if (tokens == NULL)
 		return (NULL);
@@ -23,7 +22,6 @@ char **tokenizer(char *str)
 		token = strtok(NULL, *delim);
 		i++;
 	}
-  
 	tokens[i] = NULL;
 	return (tokens);
 }
